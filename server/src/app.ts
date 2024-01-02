@@ -1,14 +1,16 @@
 import express, { NextFunction, Request, Response } from "express"
 import createHttpError, {isHttpError} from "http-errors";
 import { router } from "./Router/appRouter";
+import cors from "cors"
 
 
 export const app = express();
 
-    app.use(express.json())
+    
 
+   app.use(cors())
 
-      
+   app.use(express.json())
    app.use("/", router)
 
 
