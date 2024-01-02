@@ -21,7 +21,7 @@ async function getErrorOrData(input: RequestInfo, init: RequestInit) {
 export async function getDetails(name: string) {
 
 
-    const response = await getErrorOrData("/details", {
+    const response = await getErrorOrData("https://simple-sytt.onrender.com/details", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export interface TmdbModelMovie {
 export async function getStreamsMovie(media: TmdbModelMovie) {
 
 
-    const response = await getErrorOrData("/streamMovie", {
+    const response = await getErrorOrData("https://simple-sytt.onrender.com/streamMovie", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export async function getStreamsMovie(media: TmdbModelMovie) {
 export async function getStreamsTV(media: TmdbTV) {
 
 
-    const response = await getErrorOrData("/streamTV", {
+    const response = await getErrorOrData("https://simple-sytt.onrender.com/streamTV", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
