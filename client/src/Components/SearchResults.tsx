@@ -18,20 +18,7 @@ const SearchResults = ({data}: searResultProps) => {
 
   const [modalState, setModalState] = useState(false)
 
-  const [movieStream, setMovieStream] = useState<MovieData>({
-    stream: {
-      id: "",
-      captions: [],
-      qualities: {
-        360: { type: "", url: "" },
-        720: { type: "", url: "" },
-        1080: { type: "", url: "" },
-        '4k': { type: "", url: "" },
-      },
-      type: "",
-      flags: [],
-    },
-  })
+  const [movieStream, setMovieStream] = useState<MovieData>()
 
 
   const [loading, setLoading] = useState(false)
@@ -68,13 +55,16 @@ const SearchResults = ({data}: searResultProps) => {
                   setLoading(true)
 
                   const response : MovieData = await getStreamsMovie(data as TmdbModelMovie);
-  
-                  
-                  if(response.stream.type === "hls"){
-                    throw Error("I will implement my own video player soon this is in hls format, wait for version 2 thx !!!")
+
+
+                  if(response.stream.type !== "hls"){
+                    throw Error("sorry it does not work !!!")
                   }
 
-                 
+            
+                  if(!response){
+                    throw Error("server could not fetch the movie")
+                  }     
                   
 
                   setMovieStream(response)

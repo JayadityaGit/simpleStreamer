@@ -2,8 +2,9 @@
 import { Modal } from 'react-bootstrap'
 
 import dancing from "../assests/ui-shigure-shigure-ui.gif"
-import VideoMp4 from './VideoMp4';
+
 import { MovieData } from '../Model/streamModel';
+import VideoHls from './VideoHls';
 
 
 
@@ -11,7 +12,7 @@ interface CmodalProps{
     show: boolean,
     onHide: ()=>void,
     load: boolean,
-    streamMovie: MovieData
+    streamMovie?: MovieData
     
 }
 
@@ -33,7 +34,11 @@ const CModal = (props : CmodalProps ) => {
     <Modal.Body>
      
       <div >
-      {load === false ? <VideoMp4 streamData={streamMovie}/> : <img src={dancing} className='h-52 ' alt='loading'/>}
+
+
+       {load === false ? <VideoHls streamData = {streamMovie}/>: <img src={dancing} className='h-52 ' alt='loading'/>} 
+        
+     
       </div>
     </Modal.Body>
     
