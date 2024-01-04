@@ -37,7 +37,7 @@ const SearchResults = ({data}: searResultProps) => {
   const [loading, setLoading] = useState(false)
 
   return (
-    <div>
+    <div className='grid grid-cols-1 place-items-center px-6 space-y-4 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7'>
       
       
       <CModal 
@@ -53,9 +53,9 @@ const SearchResults = ({data}: searResultProps) => {
       data.map((data)=>{
 
         return (
-          <Card key={data.id} style={{ width: '18rem' }}>
+          <Card key={data.id}>
           <Card.Img variant="top" src={"https://image.tmdb.org/t/p/original"+data.poster_path} />
-          <Card.Body>
+          <Card.Body >
             <Button onClick={async()=>{
 
               try {
@@ -99,7 +99,7 @@ const SearchResults = ({data}: searResultProps) => {
               
           
 
-            }}>Watch</Button>
+            }}>Watch {data.media_type} </Button>
           </Card.Body>
         </Card>
         )

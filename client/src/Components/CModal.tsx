@@ -32,8 +32,8 @@ const CModal = (props : CmodalProps ) => {
     </Modal.Header>
     <Modal.Body>
      
-      <div>
-      {load === false ? <VideoMp4 streamData={streamMovie}/> : <img src={dancing} alt='loading'/>}
+      <div >
+      {load === false ? <VideoMp4 streamData={streamMovie}/> : <img src={dancing} className='h-52 ' alt='loading'/>}
       </div>
     </Modal.Body>
     

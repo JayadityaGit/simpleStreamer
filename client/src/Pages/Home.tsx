@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import SearchResults from '../Components/SearchResults'
-import { Button, InputGroup } from 'react-bootstrap'
+
 import { getDetails } from '../Network/apiConnect'
 
 export interface TmdbModelMovie {
@@ -74,9 +74,8 @@ const Home = () => {
     <div>
         
         
-        <InputGroup className="mb-3">
-
-        <input type="text" value={inputValue} onKeyDown={(event)=>{
+        <div className='flex justify-center py-10 '>
+        <input className='border-1 border-black p-2 outline-none rounded-l-md'  placeholder='search Movies' type="text" value={inputValue} onKeyDown={(event)=>{
 
             if(event.key==="Enter"){
             trigger()
@@ -84,7 +83,7 @@ const Home = () => {
 
         }} onChange={(event)=>{setInputValue(event.target.value)}}/>
        
-        <Button onClick={async()=>{
+        <button className='bg-blue-600 text-white w-20 rounded-r-md' onClick={async()=>{
             
 
             try {
@@ -104,11 +103,11 @@ const Home = () => {
            
         
         
-        }} variant="primary" id="button-addon2">
+        }}id="button-addon2">
           Search
-        </Button>
+        </button>
         
-        </InputGroup>
+        </div>  
         
         <SearchResults data = {entData}/>
         
